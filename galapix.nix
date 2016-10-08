@@ -12,7 +12,6 @@ stdenv.mkDerivation rec {
     sed "s|-I/-isystem|-I\\\\//-isystem\\\\/|" -i SConscript
     sed "/GALAPIX_GTK/ s/True/False/" -i SConscript
     sed "1 i #include <string.h>" -i src/plugins/png.cpp
-    sed "s/isnan/std::isnan/" -i src/galapix/workspace.cpp
   '';
 
   buildPhase = "scons";
