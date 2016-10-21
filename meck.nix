@@ -14,6 +14,7 @@ stdenv.mkDerivation rec {
     tar xzf $src
     cd $name
     sed -i 's/all: get-deps compile test doc/all: get-deps compile doc/' Makefile
+    export SSL_CERT_FILE=${cacert}/etc/ssl/certs/ca-bundle.crt
   '';
 
   buildInputs = [ erlang git which ];
