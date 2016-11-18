@@ -17,6 +17,7 @@ stdenv.mkDerivation rec {
     tar xzf $src
     cd $name
     sed -i "s/sendfile ()/sendfile_xyz ()/" configure
+    sed -i "s/-Werror //" src/Makefile
   '';
 
   configureFlags = "--with-extrainclude=${pam}/include/security";
